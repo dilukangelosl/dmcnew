@@ -49,15 +49,17 @@ logout(){
  reportdisaster(type:any,contact:any,city:any,latlng:any,photo:any){
 
     this. afAuth.authState.subscribe((user) => {
-
-   return this.db.object('/disaster').set({
+          var d = new Date().toISOString();
+         
+          console.log(d)
+   return this.db.list('/disaster').push({
      userid:user.uid,
      type:type,
      contact:contact,
      city:city,
      latlng:latlng,
      photo:photo,
-     reportdate:new Date(),
+     reportdate:d,
      status:"Pending",
      approved:false
    });
