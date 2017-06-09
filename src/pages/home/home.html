@@ -1,18 +1,40 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<!--
+  Generated template for the HomePage page.
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+
+<ion-content id="home" fullscreen="true" >
+<ion-fab top left menuToggle id="menu" >
+    <button ion-fab mini color="light"><ion-icon name="menu"></ion-icon></button>
+   
+  </ion-fab>
+
+
+<div id="logocontainer" >
+<img src="./assets/img/dmclogo2.png"  width="50">
+<h3 >DMC Emergency Mobile Services</h3>
+</div>
+
+<div id="buttoncontainer" >
+<div class="darkbg" padding>
+
+<div class="btncontainer">
+
+<button ion-button class="mybutton" (click)="report()">Report Disaster</button>
+<button ion-button class="mybutton "(click)="help()">Help Finder</button>
+<button ion-button class="mybutton">My Reports</button>
+<button ion-button class="mybutton" (click)="news()">News/Warnings</button>
+<button ion-button class="mybutton " (click)="sos()">SOS</button>
+</div>
+
+</div>
+
+
+</div>
+
+
+

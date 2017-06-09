@@ -1,14 +1,18 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
+  <ion-header color="dark">
+    <ion-toolbar color="dark">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="bg">
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button menuClose ion-item *ngFor="let p of pages"  class="t">
+        <!-- (click)="openPage(p)" -->
         {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="logout()" class="t">
+        Logout
       </button>
     </ion-list>
   </ion-content>

@@ -1,0 +1,36 @@
+page-loginhome {
+
+#logocontainer img{
+margin: 0 auto;
+display: block;
+
+}
+
+#logocontainer h3{
+    text-align: center;
+    color:white;
+}
+
+.bg{
+     background:#d32f2f;
+}
+
+#login{
+    margin-top: 10px;
+    transition: all 1s ease;
+    background: white;
+}
+
+#register{
+     margin-top: 10px;
+    transition: all 1s ease;
+    background: white;
+}
+
+.segment-ios-light .segment-button.segment-activated{
+    color:#d32f2f;
+}
+.segment-md-light .segment-button{
+    border-color: white;
+}
+}

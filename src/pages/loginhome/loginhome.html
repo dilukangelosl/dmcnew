@@ -1,0 +1,94 @@
+
+
+
+<ion-content padding class="bg">
+<div id="logocontainer" >
+<img src="./assets/img/dmclogo2.png"  width="50">
+<h3 >DMC Emergency Mobile Services</h3>
+</div>
+
+<ion-segment [(ngModel)]="page" color="light" mode="ios">
+    <ion-segment-button value="login">
+      Login
+    </ion-segment-button>
+    <ion-segment-button value="register">
+      Sign Up
+    </ion-segment-button>
+  </ion-segment>
+
+
+
+
+
+<div [ngSwitch]="page">
+  
+<!-- Login-->
+  <div *ngSwitchCase="'login'" id="login" padding>
+    <ion-list mode="md">
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="loginusername"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="loginpassword"></ion-input>
+  </ion-item>
+</ion-list>
+
+ <button ion-button color="primary" full (click)="login()">Login </button>
+  </div>
+<!-- End Login -->
+ <div  *ngSwitchCase="'register'" id="login" padding>
+  
+
+    <ion-list mode="md">
+
+      <ion-list-header color="secondary">Account Details</ion-list-header>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="remail"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="rpassword"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Re Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+</ion-list>
+
+<ion-list-header color="secondary" >Personal Details</ion-list-header>
+
+<ion-item>
+    <ion-label floating>Full Name</ion-label>
+    <ion-input type="text" [(ngModel)]="rfullname"></ion-input>
+  </ion-item>
+
+<ion-item>
+    <ion-label floating>Mobile</ion-label>
+    <ion-input type="number" [(ngModel)]="rphone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>NIC/Driving License/Passport</ion-label>
+    <ion-input type="text" [(ngModel)]="rnic"></ion-input>
+  </ion-item>
+
+
+<ion-item>
+    <ion-label floating>City</ion-label>
+    <ion-input type="text" [(ngModel)]="rcity"></ion-input>
+  </ion-item>
+ <button ion-button color="primary" full (click)="signup()">Sign Up</button>
+
+ </div>
+</div>
+
+
+</ion-content>
