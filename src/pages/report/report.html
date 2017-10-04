@@ -56,7 +56,11 @@
   </ion-item>
 
   <ion-item>
-    <button ion-button  class="mybutton f" (click)="takesnap()" >REPORT NOW!!</button>
+    <button ion-button  class="mybutton f" (click)="takesnap()" >REPORT NOW!</button>
+  </ion-item>
+
+  <ion-item>
+    <button ion-button  class="mybutton f" (click)="refresh()" >REFRESH LOCATION</button>
   </ion-item>
 
 </ion-list>
@@ -65,6 +69,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <p>{{locationmessage}}</p>
+    <p style="color:red;font-weight:bold;text-align:center">{{locationmessage}}</p>
   </ion-toolbar>
 </ion-footer>

@@ -19,7 +19,10 @@ disastertype:any;
 brief:any;
 contact:any;
 city:any;
-latlng:any;
+latlng:any = {
+  lat:0,
+   lng:0
+};
 
 locationmessage:any = "Gathering your location...";
 
@@ -36,6 +39,10 @@ locationmessage:any = "Gathering your location...";
  this.locationmessage = "Your Location has been Located";
 }).catch((error) => {
   console.log('Error getting location', error);
+  this.latlng = {
+   lat:0,
+   lng:0
+ }
   this.locationmessage = "Cannot Get your GPS Coordinates, Please provide your city";
 });
 
@@ -49,7 +56,26 @@ locationmessage:any = "Gathering your location...";
     this.viewCtrl.dismiss();
   }
 
+refresh(){
+  this.locationmessage = "Gathering your location...";
+     this.geolocation.getCurrentPosition({timeout:5000}).then((resp) => {
+ // resp.coords.latitude
+ // resp.coords.longitude
 
+ this.latlng = {
+   lat:resp.coords.latitude,
+   lng:resp.coords.longitude
+ }
+ this.locationmessage = "Your Location has been Located";
+}).catch((error) => {
+  console.log('Error getting location', error);
+  this.latlng = {
+   lat:0,
+   lng:0
+ }
+  this.locationmessage = "Cannot Get your GPS Coordinates, Please provide your city";
+});
+}
  
 
 

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import * as firebase from 'firebase';
+
 import { ListPage } from '../pages/list/list';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ReportProvider } from '../providers/report/report'

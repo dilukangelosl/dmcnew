@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController,AlertController } from 'ionic-angular';
 import {ReportProvider} from '../../providers/report/report';
 import { BackgroundGeolocation, BackgroundGeolocationConfig } from '@ionic-native/background-geolocation';
-import { AngularFireDatabase, FirebaseListObservable ,FirebaseObjectObservable} from 'angularfire2/database';
+import { AngularFireDatabase ,FirebaseObjectObservable} from 'angularfire2/database';
 /**
  * Generated class for the HomePage page.
  *
@@ -114,6 +114,10 @@ let profileModal = this.modalCtrl.create("ReportPage", { userId: 8675309 });
 
   news(){
     this.navCtrl.push("NewsPage");
+  }
+
+  myreports(){
+     this.navCtrl.push("MyreportsPage");
   }
 
 }

@@ -12,8 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ReportProvider } from '../providers/report/report';
 import { GoogleplacesProvider } from '../providers/googleplaces/googleplaces';
-import { BackgroundGeolocation, BackgroundGeolocationConfig } from '@ionic-native/background-geolocation';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 export const firebaseConfig = {
   apiKey: "AIzaSyCc4h9Ovb4aCbUpyNcBNEUUUHtqciNLneI",
   authDomain: "disastermanagement-ee84a.firebaseapp.com",

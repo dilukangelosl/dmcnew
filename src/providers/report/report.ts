@@ -1,10 +1,10 @@
-import { Injectable,Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { FirebaseApp } from 'angularfire2';
+
 import firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable ,FirebaseObjectObservable} from 'angularfire2/database';
+import { AngularFireDatabase ,FirebaseObjectObservable} from 'angularfire2/database';
 @Injectable()
 export class ReportProvider {
 user: FirebaseObjectObservable<any>;
@@ -61,7 +61,10 @@ logout(){
      photo:photo,
      reportdate:d,
      status:"Pending",
-     approved:false
+     approved:false,
+     agent:null,
+     responseMessage:null
+
    });
     })
 
@@ -111,6 +114,27 @@ return new Promise((resolve,reject)=>{
 })
 
   
+}
+
+//get my reports
+getmyreports(userid:any){
+ 
+
+   return this.db.list('/disaster', {
+  query: {
+    orderByChild: 'userid',
+    equalTo: userid.uid
+  }
+});
+   
+
+}
+
+
+getChats(id){
+  return this.db.list('/disaster/'+id+"/chat");
+
+
 }
 
 addsoslocation(location:any){
