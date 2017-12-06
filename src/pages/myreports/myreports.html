@@ -14,40 +14,52 @@
 
 
 <ion-content padding>
+    <h2 style="color:white;font-weight: 300; background: #d32f2f;padding:10px">Pending {{pending.length}}</h2>
+    
+  <ion-scroll scrollY="true" style="height:50vh;background:#f1eded">
+      <ion-list >
+           <div *ngFor="let item of pending">
+         
+           
+            <ion-card *ngIf="item.status == 'Pending'" (click)="openChat(item)">
+              <img src="{{item.photo}}" height="250" />
+              <ion-card-content>
+                <ion-card-title>
+                  Type : {{item.type}} | Status : {{item.status}}
+                </ion-card-title>
+                <p>
+                  Assigned Agent : {{item.agentname}} <br> Report Date : {{item.reportdate}}<br> Status Details : {{item.statusdetails}}<br>            Agent Message : {{item.responseMessage}}
+                </p>
+              </ion-card-content>
+            </ion-card>
+      
+          </div>
+      
+        </ion-list>
+  </ion-scroll>
+  <h2 style="color:white;font-weight: 300; background: #d32f2f;padding:10px">Closed {{closed.length}}</h2>
+  
+  <ion-scroll scrollY="true" style="height:50vh;background:#f1eded;margin-top:10px;">
+      <ion-list>
+          
+             <div *ngFor="let item of closed">
+                
+              <ion-card *ngIf="item.status != 'Pending'" (click)="openChat(item)">
+                <img src="{{item.photo}}" height="250" />
+                <ion-card-content>
+                  <ion-card-title>
+                    Type : {{item.type}} | Status : {{item.status}}
+                  </ion-card-title>
+                  <p>
+                    Assigned Agent : {{item.agentname}} <br> Report Date : {{item.reportdate}}<br> Status Details : {{item.statusdetails}}<br>            Agent Message : {{item.responseMessage}} </p>
+                </ion-card-content>
+              </ion-card>
+        
+            </div>
+        
+        
+          </ion-list>
+    </ion-scroll>
 
-
-  <ion-list *ngIf="items">
-    <h2 style="color:#1b1b1b;font-weight: 300">Pending</h2>
-    <div *ngFor="let item of items | async">
-      <ion-card *ngIf="item.status == 'Pending'" (click)="openChat(item)">
-        <img src="{{item.photo}}" height="250" />
-        <ion-card-content>
-          <ion-card-title>
-            Type : {{item.type}} | Status : {{item.status}}
-          </ion-card-title>
-          <p>
-            Assigned Agent : {{item.agentname}} <br> Report Date : {{item.reportdate}}<br> Status Details : {{item.statusdetails}}<br>            Agent Message : {{item.responseMessage}}
-          </p>
-        </ion-card-content>
-      </ion-card>
-
-    </div>
-
-    <h2 style="color:#1b1b1b;font-weight: 300">Closed</h2>
-    <div *ngFor="let item of items | async">
-      <ion-card *ngIf="item.status != 'Pending'" (click)="openChat(item)">
-        <img src="{{item.photo}}" height="250" />
-        <ion-card-content>
-          <ion-card-title>
-            Type : {{item.type}} | Status : {{item.status}}
-          </ion-card-title>
-          <p>
-            Assigned Agent : {{item.agentname}} <br> Report Date : {{item.reportdate}}<br> Status Details : {{item.statusdetails}}<br>            Agent Message : {{item.responseMessage}} </p>
-        </ion-card-content>
-      </ion-card>
-
-    </div>
-
-
-  </ion-list>
+  
 </ion-content>

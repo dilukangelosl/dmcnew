@@ -18,11 +18,12 @@
     
 
     <div id="chatMessages">
-        <div *ngFor="let chat of chats | async" class="message">
-          <div [class]="chat.sender == 1 ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+        <div *ngFor="let chat of chats |async " class="message">
+          <div [class]="chat.sender == 1 ? 'from-me' : 'from-them'">
              
             <div class="messageContent">{{ chat.message }}</div>
           </div>
+          <div class="clear"></div>
         </div>
       </div>
 

@@ -123,7 +123,7 @@ getmyreports(userid:any){
    return this.db.list('/disaster', {
   query: {
     orderByChild: 'userid',
-    equalTo: userid.uid
+    equalTo: userid
   }
 });
    

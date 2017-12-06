@@ -24,3 +24,10 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+/Volumes/data/dilukangelo/ionic3/dmc2/platforms/android/build/outputs/apk/android-release-unsigned.apk
+
+ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore /Volumes/data/dilukangelo/ionic3/dmc2/platforms/android/build/outputs/apk/android-release-unsigned.apk dmc
+
+ admin123@pass
+
+/usr/local/Cellar/android-sdk/24.4.1_1/build-tools/25.0.2/zipalign -v 4 /Volumes/data/dilukangelo/ionic3/dmc2/platforms/android/build/outputs/apk/android-release-unsigned.apk DMC32.apk

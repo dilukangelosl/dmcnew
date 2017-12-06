@@ -17,11 +17,26 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class MyreportsPage {
 items: FirebaseListObservable<any> = null;
 id:any;
+pending:any = [] ;
+closed:any = [];
+
   constructor(public navCtrl: NavController, public afAuth:AngularFireAuth,public navParams: NavParams,public api:ReportProvider) {
  
 this. afAuth.authState.subscribe((user) => {
     this.id = user.uid;
    this.items =  this.api.getmyreports(user.uid);
+  
+   this.items.subscribe(res => {
+     this.pending = [];
+     this.closed = [];
+    for(var i = 0 ; i < res.length;i++){
+      if(res[i].status == 'Pending'){
+        this.pending.push(res[i]);
+      }else{
+        this.closed.push(res[i]);
+      }
+    }
+   })
     })
  }
 

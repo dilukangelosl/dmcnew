@@ -15,10 +15,10 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'report.html',
 })
 export class ReportPage {
-disastertype:any;
-brief:any;
-contact:any;
-city:any;
+disastertype:any = null;
+brief:any = null;
+contact:any = null;
+city:any = null;
 latlng:any = {
   lat:0,
    lng:0
@@ -106,6 +106,18 @@ this.camera.getPicture(options).then((imageData) => {
  .uploadImage(base64Image).then((res)=>{
    
     var image = res.downloadURL;
+    if(this.disastertype == null || this.disastertype == ""){
+      this.disastertype = "other";
+    }
+    if(this.contact == null || this.contact == ""){
+      this.contact = "Not specified";
+    }
+
+    if(this.city == null || this.city == ""){
+      this.city = "Not specified";
+    }
+
+    
 
     this.api.reportdisaster(this.disastertype,this.contact,this.city,this.latlng,image);
     loading.dismiss();
@@ -124,7 +136,7 @@ this.camera.getPicture(options).then((imageData) => {
 
    let alert = this.alertCtrl.create({
         title: 'Reporting Failed',
-        subTitle: "Error Connecting To Server",
+        subTitle: "Error Connecting To Server, Please check your connection",
         buttons: ['Dismiss']
       });
       alert.present();

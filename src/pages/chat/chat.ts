@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ReportProvider} from '../../providers/report/report';
 import {  FirebaseListObservable } from 'angularfire2/database';
+import * as moment from 'moment';
 /**
  * Generated class for the ChatPage page.
  *
@@ -15,7 +16,7 @@ import {  FirebaseListObservable } from 'angularfire2/database';
 })
 export class ChatPage {
   Id:any ;
-  chats: FirebaseListObservable<any> = null;
+  chats:any= [];
   message:any ;
   constructor(public navCtrl: NavController, public navParams: NavParams, public service:ReportProvider) {
     let data = this.navParams.get("data");
@@ -28,6 +29,11 @@ export class ChatPage {
   }
 
 
+  formattime(time){
+    console.log(time);
+    console.log(moment.utc(time).format('h:mm:ss a'))
+return moment.utc(time).format('h:mm:ss a')
+  }
   sendMessage(){
    if(this.message != null){
      this.chats.push({message:this.message,sender:1,time:Date.now()}).then(res => {
